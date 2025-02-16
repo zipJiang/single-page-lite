@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@craftamap/esbuild-plugin-html": "^0.8.0",
+    "esbuild": "0.25.0"
+  },
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "scripts": {
+    "build": "node esbuild.config.js"
+  }
+}
