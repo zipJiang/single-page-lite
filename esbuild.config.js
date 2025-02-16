@@ -20,7 +20,7 @@ esbuild.build({
     minify: false,
     outdir: "dist",
     format: 'esm',
-    external: ['react', 'react-dom', '@mui/material'],
+    external: ['react', 'react-dom', '@mui/material', "@react-spring/web"],
     plugins: [
         // importMap.load({
         //     imports: {
@@ -60,7 +60,8 @@ esbuild.build({
                                         "react": "https://esm.sh/react@^18",
                                         "react-dom": "https://esm.sh/react-dom@^18",
                                         "react/jsx-runtime": "https://esm.sh/react@^18/jsx-runtime",
-                                        "@mui/material": "https://esm.sh/@mui/material@latest?external=react"
+                                        "@mui/material": "https://esm.sh/@mui/material@latest?external=react",
+                                        "@react-spring/web": "https://esm.sh/@react-spring/web"
                                     }
                                 }
                             </script>

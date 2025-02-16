@@ -4,6 +4,7 @@ import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { lightPalette } from './components/theme';
 import { EmphCard } from './components/Card';
+import { useSpring, animated } from '@react-spring/web';
 
 
 const lightTheme = createTheme({
@@ -56,13 +57,21 @@ const lightTheme = createTheme({
 
 const App = () => {
     const theme = lightTheme;
+    const springs = useSpring({
+        from: { x: 0 },
+        to: { x: 1000 },
+        config: { duration: 1000 },
+    });
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <EmphCard>
-                <div>
-                    <h1>Hello, React with esbuild!</h1>
-                </div>
+                <animated.div style={{
+                    ...springs,
+                }}>
+                    <h1>Hello, React with esbuild! And React-spring!</h1>
+                </animated.div>
             </EmphCard>
         </ThemeProvider>
     );
