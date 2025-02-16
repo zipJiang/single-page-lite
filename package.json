@@ -4,11 +4,13 @@
     "esbuild": "0.25.0"
   },
   "dependencies": {
+    "esbuild-plugin-import-map": "^2.1.0",
     "live-server": "^1.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "scripts": {
     "build": "node esbuild.config.js"
-  }
+  },
+  "type": "module"
 }
