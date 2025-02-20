@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+
+import { useState, useEffect } from 'react';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { lightPalette } from './components/theme';
+import Interface from './Interface';
 import { EmphCard } from './components/Card';
 import { useSpring, animated } from '@react-spring/web';
 
@@ -57,22 +58,19 @@ const lightTheme = createTheme({
 
 const App = () => {
     const theme = lightTheme;
-    const springs = useSpring({
-        from: { x: 0 },
-        to: { x: 1000 },
-        config: { duration: 1000 },
-    });
+    // const [payloads, setPayloads] = useState(null);
+
+    // useEffect(() => {
+    //   setPayloads(
+    //     [JSON.parse(document.getElementById("payload-read").textContent)]
+    //   );
+    // }, []);
+    const payloads = "This is empty payloads.";
 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <EmphCard>
-                <animated.div style={{
-                    ...springs,
-                }}>
-                    <h1>Hello, React with esbuild! And React-spring!</h1>
-                </animated.div>
-            </EmphCard>
+            <Interface payload={payloads} theme={theme} />
         </ThemeProvider>
     );
 };
