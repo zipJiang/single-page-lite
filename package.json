@@ -1,11 +1,14 @@
 {
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/plugin-syntax-jsx": "^7.25.9",
+    "@babel/preset-env": "^7.26.9",
     "@craftamap/esbuild-plugin-html": "^0.8.0",
-    "esbuild": "0.25.0"
+    "esbuild": "0.25.0",
+    "live-server": "^1.2.2"
   },
   "dependencies": {
     "esbuild-plugin-import-map": "^2.1.0",
-    "live-server": "^1.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

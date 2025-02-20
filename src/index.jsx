@@ -63,6 +63,8 @@ const App = () => {
         config: { duration: 1000 },
     });
 
+    const username = "User";
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -70,7 +72,7 @@ const App = () => {
                 <animated.div style={{
                     ...springs,
                 }}>
-                    <h1>Hello, React with esbuild! And React-spring!</h1>
+                    <h1>{`Hello ${username}, React with esbuild! And React-spring!`}</h1>
                 </animated.div>
             </EmphCard>
         </ThemeProvider>
