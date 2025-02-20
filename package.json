@@ -13,7 +13,7 @@
     "react-dom": "^19.0.0"
   },
   "scripts": {
-    "build": "node esbuild.config.js"
+    "build": "node esbuild.config.js --bundle"
   },
   "type": "module"
 }

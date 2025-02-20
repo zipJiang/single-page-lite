@@ -17,6 +17,21 @@ importMap.load({
 })
 
 
+const injectPlugin = {
+  name: 'inject-code',
+  setup(build) {
+    build.onLoad({ filter: /\.jsx?$/ }, async (args) => {
+    //   const fs = require('fs');
+      let source = await fs.readFile(args.path, 'utf8');
+
+      // Inject code before original content
+      const injectedCode = 'import React from "react";\n';
+      return { contents: injectedCode + source, loader: 'jsx' };
+    });
+  }
+};
+
+
 async function build() {
 
     // Bundle into jsx
@@ -25,22 +40,13 @@ async function build() {
         bundle: true,
         metafile: true,
         minify: false,
-        // outdir: "dist",
+        outdir: "dist",
         format: 'esm',
         allowOverwrite: true,
         external: ['react', 'react-dom', '@mui/material', "@react-spring/web"],
-        // plugins: [
-        //     babel({
-        //         babelHelpers: 'bundled',
-        //         plugins: [
-        //             '@babel/plugin-transform-template-literals',
-        //             "@babel/plugin-syntax-jsx",
-        //         ],
-        //     })
-        // ]
         write: false,
         // outfile: 'dist/index.js',
-        });
+    });
 
         const { outputFiles } = result;
         const jsCode = outputFiles[0].text;
@@ -76,16 +82,32 @@ async function build() {
             }
             }
             </script>
+            <script type="module">
+                import * as React from "react";
+                import * as ReactDOM from "react-dom";
+
+                window.React = React;
+                window.ReactDOM = ReactDOM;
+            </script>
         </head>
         <body>
+            <div hidden id="payload-read">\${payload}</div>
             <div id="root"></div>
             <script type="module">
             ${transpiledCode}
             </script>
+            <input name="sanity-check" type="hidden" />
+            <div hidden>
+            <input type="submit" id="submit" value="Submit" />
+            </div>
         </body>
         </html>
         `;
 
+        // Make dir if not exist
+        await fs.mkdir('dist', { recursive: true });
+
+        // Write the html file
         await fs.writeFile('dist/index.html', htmlContent);
     }
 
