@@ -1,36 +1,6 @@
 import esbuild from 'esbuild';
 import fs from 'fs/promises';
-import path from 'path';
-import babel from 'esbuild-plugin-babel';
-import { htmlPlugin } from '@craftamap/esbuild-plugin-html';
 import { transformAsync, transformSync } from '@babel/core';
-import * as importMap from "esbuild-plugin-import-map";
-// import importMapPlugin from 'esbuild-plugin-import-map';
-
-importMap.load({
-    imports: {
-        "react": "https://esm.sh/react@^18",
-        "react-dom": "https://esm.sh/react-dom@^18",
-        "react/jsx-runtime": "https://esm.sh/react@^18/jsx-runtime",
-        "@mui/material": "https://esm.sh/@mui/material@latest?external=react"
-    }
-})
-
-
-const injectPlugin = {
-  name: 'inject-code',
-  setup(build) {
-    build.onLoad({ filter: /\.jsx?$/ }, async (args) => {
-    //   const fs = require('fs');
-      let source = await fs.readFile(args.path, 'utf8');
-
-      // Inject code before original content
-      const injectedCode = 'import React from "react";\n';
-      return { contents: injectedCode + source, loader: 'jsx' };
-    });
-  }
-};
-
 
 async function build() {
 
