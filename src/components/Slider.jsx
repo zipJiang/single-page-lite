@@ -1,4 +1,4 @@
-import "./Sliders.css";
+import "./Slider.css";
 import { Slider, SliderMark, styled } from '@mui/material';
 // import styled, { slotShouldForwardProp } from '@mui/material/styles/styled';
 // import { SliderMark } from '@mui/material';
