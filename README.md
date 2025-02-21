@@ -12,3 +12,4 @@ Migrate from `single-page-annotation`
 - `npm run build` will build the project and output the result in `dist` folder.
 - Development debugging currently isn't as well supported as under vite, but you can still run a `live-server` in the `dist` folder to see the result in real-time.
 - Currently the bundled `index.js` isn't minified for easier debugging. You can change this in the `esbuild.config.js` to further optimize the bundle size.
+- A running example can be fount at the `snippet-annotation` branch of this repository.
