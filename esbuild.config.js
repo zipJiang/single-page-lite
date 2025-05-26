@@ -47,8 +47,8 @@ async function build() {
             "react": "https://esm.sh/react@^18",
             "react-dom": "https://esm.sh/react-dom@^18",
             "react/jsx-runtime": "https://esm.sh/react@^18/jsx-runtime",
-            "@mui/material": "https://esm.sh/@mui/material@latest?external=react",
-            "@react-spring/web": "https://esm.sh/@react-spring/web"
+            "@mui/material": "https://esm.sh/@mui/material@5.15.15?external=react",
+            "@react-spring/web": "https://esm.sh/@react-spring/web@9.7.5"
             }
             }
             </script>
